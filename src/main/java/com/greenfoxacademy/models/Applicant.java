@@ -37,11 +37,11 @@ public class Applicant {
     this.name = name;
   }
 
-  public boolean isApplied() {
+  public boolean getIsApplied() {
     return isApplied;
   }
 
-  public void setApplied(boolean applied) {
+  public void setIsApplied(boolean applied) {
     isApplied = applied;
   }
 }

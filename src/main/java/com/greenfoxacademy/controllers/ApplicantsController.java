@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.applet.Applet;
 import java.util.List;
@@ -25,5 +27,11 @@ public class ApplicantsController {
     model.addAttribute("applicants", applicants);
     model.addAttribute("newApplicant", applicantFactory.getEmptyApplicant());
     return "index";
+  }
+
+  @PostMapping("/add")
+  public String addApplicant(@ModelAttribute Applicant applicant) {
+    applicantService.addApplicant(applicant);
+    return "redirect:";
   }
 }

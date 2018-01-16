@@ -18,6 +18,11 @@
             <td th:text="*{name}"></td>
             <td th:text="*{isApplied}"></td>
             <td th:text="*{courseType}"></td>
+            <td>
+                <form action="#" th:action="@{/delete/} + *{id}" method="post">
+                    <input class="btn btn-danger" value="Delete" type="submit"/>
+                </form>
+            </td>
         </tr>
     </table>
     <form action="#" th:action="@{/add}" th:object="${newApplicant}" method="post">

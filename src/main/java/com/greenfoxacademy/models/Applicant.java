@@ -13,6 +13,7 @@ public class Applicant {
   private int id;
   private String name;
   private boolean isApplied;
+  private String courseType;
 
   public Applicant() {
   }
@@ -43,5 +44,13 @@ public class Applicant {
 
   public void setIsApplied(boolean applied) {
     isApplied = applied;
+  }
+
+  public String getCourseType() {
+    return courseType;
+  }
+
+  public void setCourseType(String courseType) {
+    this.courseType = courseType;
   }
 }

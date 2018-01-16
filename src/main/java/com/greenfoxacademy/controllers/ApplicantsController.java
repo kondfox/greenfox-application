@@ -1,5 +1,6 @@
 package com.greenfoxacademy.controllers;
 
+import com.greenfoxacademy.collections.Courses;
 import com.greenfoxacademy.factories.ApplicantFactory;
 import com.greenfoxacademy.models.Applicant;
 import com.greenfoxacademy.services.ApplicantService;
@@ -20,12 +21,15 @@ public class ApplicantsController {
   ApplicantService applicantService;
   @Autowired
   ApplicantFactory applicantFactory;
+  @Autowired
+  Courses courses;
 
   @GetMapping("")
   public String showIndexPage(Model model) {
     List<Applicant> applicants = applicantService.getAllApplicants();
     model.addAttribute("applicants", applicants);
     model.addAttribute("newApplicant", applicantFactory.getEmptyApplicant());
+    model.addAttribute("courseTypes", courses.getCourseTypes());
     return "index";
   }
 

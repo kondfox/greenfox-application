@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Edit Green Fox Applicant</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous"/>
+</head>
+<body>
+    <h1 th:text="'Edit Green Fox Applicant with id ' + ${applicant.id}"></h1>
+    <form action="#" th:action="@{/edit/} + ${applicant.id}" method="post" th:object="${applicant}">
+        <div>
+            <label th:field="*{id}" th:text="*{id}"></label>
+        </div>
+        <div>
+            <label for="applicant_name">Name:</label>
+            <input id="applicant_name" type="text" th:field="*{name}" />
+        </div>
+        <div>
+            <label for="isApplied">Is applied?:</label>
+            <input id="isApplied" type="checkbox" th:field="*{isApplied}"/>
+        </div>
+        <div>
+            <select th:field="*{courseType}">
+                <option th:each="type : ${courseTypes}"
+                        th:value="${type}"
+                        th:text="${type}"
+                ></option>
+            </select>
+        </div>
+        <div>
+            <input class="btn btn-success" type="submit" value="Edit" />
+        </div>
+    </form>
+
+</body>
+</html>

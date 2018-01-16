@@ -23,6 +23,11 @@
                     <input class="btn btn-danger" value="Delete" type="submit"/>
                 </form>
             </td>
+            <td>
+                <form action="#" th:action="@{/edit/} + *{id}" method="get">
+                    <input class="btn btn-primary" value="Edit" type="submit"/>
+                </form>
+            </td>
         </tr>
     </table>
     <form action="#" th:action="@{/add}" th:object="${newApplicant}" method="post">

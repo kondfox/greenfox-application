@@ -45,4 +45,19 @@ public class ApplicantsController {
     applicantService.deleteApplicant(applicantId);
     return "redirect:/";
   }
+
+  @GetMapping("/edit/{applicantId}")
+  public String showEditForm(@PathVariable int applicantId, Model model) {
+    Applicant applicant = applicantService.getApplicantById(applicantId);
+    model.addAttribute("applicant", applicant);
+    model.addAttribute("courseTypes", courses.getCourseTypes());
+    return "edit";
+  }
+
+  @PostMapping("/edit/{applicantId}")
+  public String editApplicant(@PathVariable int applicantId, @ModelAttribute Applicant applicant) {
+    applicant.setId(applicantId);
+    applicantService.modifyApplicant(applicant);
+    return "redirect:/";
+  }
 }

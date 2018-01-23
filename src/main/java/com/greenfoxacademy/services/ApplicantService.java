@@ -12,6 +12,6 @@ public interface ApplicantService {
   Applicant getApplicantById(int id);
   void modifyApplicant(Applicant applicant);
   void deleteApplicant(int id);
-  void addApplicant(Applicant applicant);
+  boolean addApplicant(Applicant applicant);
 
 }

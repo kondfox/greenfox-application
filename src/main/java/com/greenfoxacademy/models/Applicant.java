@@ -1,9 +1,12 @@
 package com.greenfoxacademy.models;
 
+import org.springframework.beans.factory.annotation.Required;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Applicant {
@@ -11,6 +14,7 @@ public class Applicant {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private int id;
+  @NotNull
   private String name;
   private boolean isApplied;
   private String courseType;

@@ -34,7 +34,12 @@ public class ApplicantServiceImpl implements ApplicantService {
   }
 
   @Override
-  public void addApplicant(Applicant applicant) {
-    applicantRepository.save(applicant);
+  public boolean addApplicant(Applicant applicant) {
+    try {
+      applicantRepository.save(applicant);
+      return true;
+    } catch (Exception e) {
+      return false;
+    }
   }
 }
